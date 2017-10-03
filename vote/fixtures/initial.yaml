@@ -4,12 +4,15 @@
     first_name: Donald
     middle_initial: J
     last_name: Trump
+    party: republican
     photo_url: https://petapixel.com/assets/uploads/2017/01/Donald_Trump_official_portraitt.jpg
     bio: |
       Real estate mogul and former reality TV star Donald John Trump was born in
       1946, in Queens, New York. In 1971, he became involved in large,
       profitable building projects in Manhattan. In 1980, he opened the Grand
-      Hyatt, which made him the city\'s best-known developer.
+      Hyatt, which made him the city's best-known developer. Trump turned his
+      attention to politics, and in 2015 he announced his candidacy for
+      president of the United States on the Republican ticket.
 
 - model: vote.candidate
   pk: 2
@@ -17,7 +20,7 @@
     first_name: Hillary
     middle_initial: R
     last_name: Clinton
-    bio: ""
+    party: democratic
     photo_url: https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Hillary_Clinton_official_Secretary_of_State_portrait_crop.jpg/819px-Hillary_Clinton_official_Secretary_of_State_portrait_crop.jpg
     bio: |
       When Hillary Clinton was elected to the U.S. Senate in 2001, she became
