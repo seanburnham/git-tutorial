@@ -23,3 +23,7 @@ class Candidate(models.Model):
             self.first_name,
             self.middle_initial,
             self.last_name)
+
+    def get_party(self):
+        '''Return the candidate's party in title case.'''
+        return self.party.title()
