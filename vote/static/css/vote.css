@@ -1,0 +1,15 @@
+.jumbotron {
+    margin-top: 30px;
+}
+
+.card-group {
+    margin-bottom: 30px;
+}
+
+.card-group.voted .card {
+    opacity: 0.4;
+}
+
+.card-group.voted .card.voted {
+    opacity: 1.0;
+}

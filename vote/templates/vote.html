@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div class="jumbotron">
+    <h1 class="display-3">Cast Your Vote!</h1>
+    <hr/>
+    {% if vote %}
+      <p class="lead">Thank you for voting!</p>
+    {% else %}
+      <p class="lead">Welcome to the official site of the U.S. Presidential Election. Take some time to learn about the candidates and then cast your vote.</p>
+    {% endif %}
+  </div>
+  <div class="row">
+    <div class="col-sm">
+      <div class="card-group{% if vote %} voted{% endif %}">
+        {% for candidate in candidates %}
+          <div class="candidate card{% if vote == candidate.id %} voted{% endif %}">
+            <img class="card-img-top" alt="{{candidate.full_name}}" src="{{candidate.photo_url}}"/>
+            <div class="card-body">
+              <h4 class="card-title">
+                {{candidate.full_name}}
+              </h4>
+              <p>
+                <span class="badge badge-secondary pull-right">{{candidate.get_party}}</span>
+              </p>
+              <p class="card-text">{{candidate.bio}}</p>
+            </div>
+            {% if not vote %}
+              <div class="card-footer">
+                <form method="post">
+                  {% csrf_token %}
+                  <input type="number" name="candidate_id" value="{{candidate.id}}" hidden>
+                  <button type="submit" class="btn btn-primary">Vote ✔</button>
+                </form>
+              </div>
+            {% endif %}
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+{% endblock %}
