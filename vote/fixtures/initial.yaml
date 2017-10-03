@@ -1,0 +1,27 @@
+- model: vote.candidate
+  pk: 1
+  fields:
+    first_name: Donald
+    middle_initial: J
+    last_name: Trump
+    photo_url: https://petapixel.com/assets/uploads/2017/01/Donald_Trump_official_portraitt.jpg
+    bio: |
+      Real estate mogul and former reality TV star Donald John Trump was born in
+      1946, in Queens, New York. In 1971, he became involved in large,
+      profitable building projects in Manhattan. In 1980, he opened the Grand
+      Hyatt, which made him the city\'s best-known developer.
+
+- model: vote.candidate
+  pk: 2
+  fields:
+    first_name: Hillary
+    middle_initial: R
+    last_name: Clinton
+    bio: ""
+    photo_url: https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Hillary_Clinton_official_Secretary_of_State_portrait_crop.jpg/819px-Hillary_Clinton_official_Secretary_of_State_portrait_crop.jpg
+    bio: |
+      When Hillary Clinton was elected to the U.S. Senate in 2001, she became
+      the first American first lady to ever win a public office seat. She later
+      became the 67th U.S. secretary of state in 2009, serving until 2013. In
+      2016, she became the first woman in U.S. history to become the
+      presidential nominee of a major political party.
