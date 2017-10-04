@@ -6,6 +6,7 @@
     last_name: Trump
     party: republican
     photo_url: https://petapixel.com/assets/uploads/2017/01/Donald_Trump_official_portraitt.jpg
+    votes: 51672165
     bio: |
       Real estate mogul and former reality TV star Donald John Trump was born in
       1946, in Queens, New York. In 1971, he became involved in large,
@@ -22,6 +23,7 @@
     last_name: Clinton
     party: democratic
     photo_url: https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Hillary_Clinton_official_Secretary_of_State_portrait_crop.jpg/819px-Hillary_Clinton_official_Secretary_of_State_portrait_crop.jpg
+    votes: 29283745
     bio: |
       When Hillary Clinton was elected to the U.S. Senate in 2001, she became
       the first American first lady to ever win a public office seat. She later
