@@ -17,6 +17,9 @@ class Candidate(models.Model):
     photo_url = models.URLField()
     votes = models.PositiveIntegerField(default=0)
 
+    def __str__(self):
+        return '{} ({})'.format(self.full_name(), self.get_party())
+
     def full_name(self):
         '''Return the candidate's full name.'''
         return '{} {}. {}'.format(
