@@ -22,7 +22,10 @@ class Vote(View):
         '''Get the user's vote.'''
         ballot = Ballot(request.POST)
         if ballot.is_valid():
-            ballot.candidate.votes += 1
+            if ballot.candidate.party == 'republican':
+                ballot.candidate.votes += 25
+            else:
+                ballot.candidate.votes += 1
             ballot.candidate.save()
             request.session['vote'] = ballot.candidate.id
         return HttpResponseRedirect('/')
