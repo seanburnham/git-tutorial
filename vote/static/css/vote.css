@@ -2,6 +2,12 @@
     margin-top: 30px;
 }
 
+.progress .progress-bar {
+    height: 30px;
+    padding-top: 7px;
+    font-weight: 700;
+}
+
 .card-group {
     margin-bottom: 30px;
 }

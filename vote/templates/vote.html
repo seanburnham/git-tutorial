@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load humanize %}
 
 {% block content %}
   <div class="jumbotron">
@@ -10,30 +11,39 @@
       <p class="lead">Welcome to the official site of the U.S. Presidential Election. Take some time to learn about the candidates and then cast your vote.</p>
     {% endif %}
   </div>
+  {% if vote %}
+    <h2>Live Results</h2>
+    <div class="progress mb-4">
+      <div class="progress-bar bg-danger" role="progressbar" style="width:{{votes.republican_percentage}}%;" aria-valuenow="{{votes.republican}}" aria-valuemin="0" aria-valuemax="{{votes.total}}">{{votes.republican_percentage}}%</div>
+      <div class="progress-bar bg-primary" role="progressbar" style="width:{{votes.democratic_percentage}}%;" aria-valuenow="{{votes.democratic}}" aria-valuemin="0" aria-valuemax="{{votes.total}}">{{votes.democratic_percentage}}%</div>
+    </div>
+  {% endif %}
   <div class="row">
     <div class="col-sm">
       <div class="card-group{% if vote %} voted{% endif %}">
         {% for candidate in candidates %}
-          <div class="candidate card{% if vote == candidate.id %} voted{% endif %}">
+          <div class="candidate card{% if vote == candidate.id %} voted border-success{% endif %}">
             <img class="card-img-top" alt="{{candidate.full_name}}" src="{{candidate.photo_url}}"/>
             <div class="card-body">
               <h4 class="card-title">
                 {{candidate.full_name}}
               </h4>
               <p>
-                <span class="badge badge-secondary pull-right">{{candidate.get_party}}</span>
+                <span class="badge badge-{% if candidate.party == 'republican' %}danger{% else %}primary{% endif %} pull-right">{{candidate.get_party}}</span>
               </p>
               <p class="card-text">{{candidate.bio}}</p>
             </div>
-            {% if not vote %}
-              <div class="card-footer">
+            <div class="card-footer">
+              {% if not vote %}
                 <form method="post">
                   {% csrf_token %}
                   <input type="number" name="candidate_id" value="{{candidate.id}}" hidden>
-                  <button type="submit" class="btn btn-primary">Vote ✔</button>
+                  <button type="submit" class="btn btn-{% if candidate.party == 'republican' %}danger{% else %}primary{% endif %}">Vote ✔</button>
                 </form>
-              </div>
-            {% endif %}
+              {% else %}
+                {{ candidate.votes | intcomma }} Votes
+              {% endif %}
+            </div>
           </div>
         {% endfor %}
       </div>

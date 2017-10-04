@@ -12,10 +12,16 @@ class Vote(View):
         '''Show the voting page.'''
         candidates = models.Candidate.objects.all()
         user_vote = request.session.get('vote', None)
-
+        votes = {}
+        for candidate in candidates:
+            votes[candidate.party] = votes.get(candidate.party, 0) + candidate.votes
+            votes['total'] = votes.get('total', 0) + candidate.votes
+        votes['republican_percentage'] = round(votes.get('republican', 0) / votes['total'] * 100, 2)
+        votes['democratic_percentage'] = round(votes.get('democratic', 0) / votes['total'] * 100, 2)
         return render(request, 'vote.html', {
             'candidates': candidates,
             'vote': user_vote,
+            'votes': votes
             })
 
     def post(self, request):
