@@ -17,6 +17,10 @@ class Candidate(models.Model):
     photo_url = models.URLField()
     votes = models.PositiveIntegerField(default=0)
 
+    def __str__(self):
+        '''String representation of Candidate.'''
+        return '{} - {}'.format(self.last_name, self.party)
+
     def full_name(self):
         '''Return the candidate's full name.'''
         return '{} {}. {}'.format(
